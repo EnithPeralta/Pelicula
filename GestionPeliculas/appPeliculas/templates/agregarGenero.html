@@ -1,0 +1,15 @@
+{% extends "index.html"%}
+{%block contenido%}
+<div>
+    <h3>Agregar Genero</h3>
+    <form action="/agregarGenero/" method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" class="form-control">
+        </div>
+        <div>
+            <button class="btn btn-outline-primary">Agregar</button>
+        </div>
+    </form>
+</div>
+{% endblock%}

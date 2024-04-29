@@ -1,0 +1,37 @@
+{% extends "index.html"%}
+{%block contenido%}
+<div class="container pt-4" style="font-family: cursive; align-items: center; display: flex; flex-direction: column;">
+    <h5 >Listado De Peliculas</h5>
+    <table class="table table-bordered gap-2">
+        <thead >
+            <tr>
+                <th>Codigo</th>
+                <th>Titulo</th>
+                <th>Protagonista</th>
+                <th>Resumen</th>
+                <th>Foto</th>
+                <th>Genero</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for p in peliculas %}
+            <tr>
+                <td>{{p.codigo}}</td>
+                <td>{{p.titulo}}</td>
+                <td>{{p.protagonista}}</td>
+                <td>{{p.resumen}}</td>
+                <td>
+                    <img src="../media/{{p.foto}}" width="50" height="50" alt="">
+                </td>
+                <td>{{p.genero}}</td>
+                <td class="gap-1 d-flex ">
+                    <button class="btn btn-outline-warning"><ion-icon name="create-outline"></ion-icon></button>
+                    <button class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock%}
