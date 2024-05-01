@@ -63,3 +63,14 @@ def vistaAgregarPelicula(request):
     generos = Genero.objects.all()
     retorno = {"generos":generos}
     return render(request,"agregarPelicula.html",retorno)
+
+def eliminarPelicula(request,pelicula_id):
+    try:
+        pelicula = Pelicula.objects.get(pk=pelicula_id)
+        pelicula.delete() 
+        mensaje = "Pelicula Eliminada Correctamente"
+    except Error as error:
+        mensaje = str(error)
+    retorno = {"mensaje":mensaje,'idPelicula':pelicula.id}
+    return JsonResponse(retorno)
+    

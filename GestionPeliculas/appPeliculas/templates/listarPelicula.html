@@ -1,9 +1,14 @@
 {% extends "index.html"%}
 {%block contenido%}
+<div class="pt-4" style="font-family: cursive; align-items: center; display: flex; flex-direction: column;">
+    <a href="/vistaAgregarPelicula/">
+        <button class="btn btn-outline-info">Agregar</button>
+    </a>
+</div>
 <div class="container pt-4" style="font-family: cursive; align-items: center; display: flex; flex-direction: column;">
-    <h5 >Listado De Peliculas</h5>
+    <h5>Listado De Peliculas</h5>
     <table class="table table-bordered gap-2">
-        <thead >
+        <thead>
             <tr>
                 <th>Codigo</th>
                 <th>Titulo</th>
@@ -33,5 +38,10 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
+<div style="font-family: cursive; align-items: center; display: flex; flex-direction: column; justify-content:flex-end ;">
+    <a href="/inicio/">
+        <button class="btn btn-outline-danger">Salir</button>
+    </a>
 </div>
 {% endblock%}
