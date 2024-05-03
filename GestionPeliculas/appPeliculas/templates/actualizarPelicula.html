@@ -1,0 +1,52 @@
+{% extends "index.html"%}
+{%block contenido%}
+<div class="p-4 d-flex justify-content-cente">
+    <div class="card container p-3" style="width: 25rem; height: 37rem;">
+        <h4 style="display:flex; justify-content:center;">Actualizar Pelicula</h4>
+        <form action="/actualizarPelicula/" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div>
+                <label for="codigo">Codigo:</label>
+                <input type="text" name="codigo" id="codigo" class="form-control" value="{{pelicula.codigo}}">
+            </div>
+            <div>
+                <label for="titulo">Titulo:</label>
+                <input type="text" name="titulo" id="titulo" class="form-control" value="{{pelicula.titulo}}">
+            </div>
+            <div>
+                <label for="protagonista">Protagonista:</label>
+                <input type="text" name="protagonista" id="protagonista" class="form-control" value="{{pelicula.protagonista}}">
+            </div>
+            <div>
+                <label for="duracion">Duracion:</label>
+                <input type="text" name="duracion" id="duracion" class="form-control" value="{{pelicula.duracion}}">
+            </div>
+            <div>
+                <label for="resumen">Resumen:</label>
+                <textarea type="text" name="resumen" id="resumen" cols="30" rows="3" class="form-control">{{pelicula.resumen}}</textarea>
+            </div>
+            <div>
+                <label for="cbGenero">Genero:</label>
+                <select name="cbGenero" id="" class="form-select">
+                    <option value="">Seleccione</option>
+                    {%for g in generos%}
+                    {% if g.id == pelicula.genero.id %}
+                    <option value="{{g.id}}" selected>{{g.nombre}}</option>
+                    {%else%}
+                    <option value="{{g.id}}">{{g.nombre}}</option>
+                    {%endif%}
+                    {%endfor%}
+                </select>
+            </div>
+            <div>
+                <label for="fileFoto">Foto:</label>
+                <input type="file" id="fileFoto" name="fileFoto" class="form-control">
+            </div>
+            <div class="pt-3">
+                    <button class="btn btn-outline-primary">Actualizar</button>
+            </div>
+            <input type="hidden" name="idPelicula" value="{{pelicula.id}}">
+        </form>
+    </div>
+</div>
+{% endblock%}

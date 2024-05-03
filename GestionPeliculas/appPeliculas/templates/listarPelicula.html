@@ -5,8 +5,10 @@
         <button class="btn btn-outline-info">Agregar</button>
     </a>
 </div>
+{% load static%}
+<script src="{% static '../static/js/app.js'%}"></script>
 <div class="container pt-4" style="font-family: cursive; align-items: center; display: flex; flex-direction: column;">
-    <h5>Listado De Peliculas</h5>
+    <title>Listado De Peliculas</title>
     <table class="table table-bordered gap-2">
         <thead>
             <tr>
@@ -31,15 +33,19 @@
                 </td>
                 <td>{{p.genero}}</td>
                 <td class="gap-1 d-flex ">
-                    <button class="btn btn-outline-warning"><ion-icon name="create-outline"></ion-icon></button>
-                    <button class="btn btn-outline-danger"><ion-icon name="trash-outline"></ion-icon></button>
+                    <a href="/consultarPelicula/{{p.id}}">
+                        <button class="btn btn-outline-warning"><ion-icon name="create-outline"></ion-icon></button>
+                    </a>
+                    <button class="btn btn-outline-danger" onclick="eliminarPelicula('{{p.id}}')"><ion-icon
+                            name="trash-outline"></ion-icon></button>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
-<div style="font-family: cursive; align-items: center; display: flex; flex-direction: column; justify-content:flex-end ;">
+<div
+    style="font-family: cursive; align-items: center; display: flex; flex-direction: column; justify-content:flex-end ;">
     <a href="/inicio/">
         <button class="btn btn-outline-danger">Salir</button>
     </a>
